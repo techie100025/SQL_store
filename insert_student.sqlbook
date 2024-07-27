@@ -1,0 +1,21 @@
+-- SQLBook: Code
+ALTER TABLE student ADD INDEX(firstname(10));
+ALTER TABLE student ADD INDEX(lastname(10));
+ALTER TABLE student ADD INDEX(parentname(10));
+ALTER TABLE student ADD INDEX(student_id);
+-- SQLBook: Code
+CREATE OR REPLACE VIEW roll_list
+AS
+SELECT firstname , lastname FROM student;
+-- SQLBook: Markup
+-- Trigger, PL/SQl, Func,PArt
+-- SQLBook: Code
+insert into development.student (firstname,parentname,student_id) values( 'A Shri' , 'D Shri', 140003 );
+-- SQLBook: Code
+CREATE PROCEDURE
+    insert_student( IN f VARCHAR(40) , IN l VARCHAR(40) , IN p VARCHAR(40) , IN i INT )
+BEGIN
+    INSERT INTO student (student_id,firstname,lastname,parentname) VALUES ( i,f,l,p);
+
+END;
+/
